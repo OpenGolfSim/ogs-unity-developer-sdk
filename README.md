@@ -13,7 +13,6 @@ public class MyCoolGame : MonoBehaviour
 {
   // Create and connect a golf ball sized sphere with a rigid body...
   public GameObject golfBall;
-  private SetupData setupData;
   private Queue<ShotData> shotQueue = new Queue<ShotData>();
   private IpcServer ipc;
   private BallPhysics ballPhysics;
@@ -29,13 +28,10 @@ public class MyCoolGame : MonoBehaviour
     ipc = gameObject.AddComponent<IpcServer>();
     ipc.setupCallback += SetupGame;
     ipc.shotCallback += EnqueueShot;
-    ipc.controlCallback += EnqueueControl;
-
   }
 
-  void SetupGame(SetupData parsedSetupData)
+  void SetupGame(SetupData setupData)
   {
-    setupData = parsedSetupData;
     // setup players, clubs, etc.
   }
 
@@ -62,7 +58,6 @@ public class MyCoolGame : MonoBehaviour
             bool isPutt = false;
 
             ballPhysics.LaunchShot(shot, isPutt);
-
         }
     }
   }
