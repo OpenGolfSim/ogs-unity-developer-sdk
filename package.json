@@ -1,0 +1,13 @@
+{
+  "name": "com.opengolfsim.unity-sdk",
+  "version": "1.0.0",
+  "displayName": "OpenGolfSim SDK",
+  "unity": "6000.2",
+  "unityRelease": "6f2",
+  "author": {
+    "email": "help@opengolfsim.com",
+    "name": "OpenGolfSim LLC",
+    "url": "https://opengolfsim.com"
+  },
+  "documentationUrl": "https://help.opengolfsim.com"
+}
