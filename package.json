@@ -1,6 +1,6 @@
 {
   "name": "com.opengolfsim.unity-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "OpenGolfSim SDK",
   "unity": "6000.2",
   "unityRelease": "6f2",
