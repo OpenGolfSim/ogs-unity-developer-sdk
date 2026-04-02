@@ -1,5 +1,12 @@
 This is the experimental OpenGolfSim SDK for Unity, to allow building your own full games that run within the OpenGolfSim desktop platform. It contains open source versions of our core golf physics and IPC communication with the parent OGS process over stdio.
 
+
+
+## Usage
+
+
+We also have a more complete [example project](https://github.com/OpenGolfSim/example-unity-game) that shows how to integrate with the SDK, but the basic usage is fairly simple:
+
 ```cs
 
 public class MyCoolGame : MonoBehaviour
@@ -29,7 +36,7 @@ public class MyCoolGame : MonoBehaviour
   void SetupGame(SetupData parsedSetupData)
   {
     setupData = parsedSetupData;
-    // setup rest of game
+    // setup players, clubs, etc.
   }
 
   public void EnqueueShot(ShotData shot)
@@ -54,13 +61,7 @@ public class MyCoolGame : MonoBehaviour
             Debug.Log($"Received a shot in the queue ballSpeed={shot.ballSpeed}");
             bool isPutt = false;
 
-            ballPhysics.ApplyInitialShotForce(
-                shot.ballSpeed,
-                shot.verticalLaunchAngle,
-                shot.horizontalLaunchAngle,
-                shot.spinSpeed,
-                shot.spinAxis
-            );
+            ballPhysics.LaunchShot(shot, isPutt);
 
         }
     }
